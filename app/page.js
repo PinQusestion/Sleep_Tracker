@@ -1,6 +1,7 @@
 import Image from "next/image";
 import moon from "../public/image/moon.png";
 import Navbar from "./components/Navbar";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -21,7 +22,7 @@ export default function Home() {
           Sleep. Track. Improve
         </h1>
         <p className="mt-3">Enhance your sleep quality, schedules and be at your best</p>
-        <button className="bg-white text-black py-2 px-5 rounded-2xl mt-8">Get Started</button>
+        <Link href="/home"><button className="bg-white text-black py-2 px-5 rounded-2xl mt-8 hover:cursor-pointer">Get Started</button></Link>
       </div>
     </div>
   );
