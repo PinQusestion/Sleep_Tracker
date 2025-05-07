@@ -1,9 +1,10 @@
 import Image from "next/image";
 import moon from "../public/image/moon.png";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Header";
 import Link from "next/link";
 
 export default function Home() {
+
   return (
     <div className="bg-[#0a0e18] flex flex-col items-center justify-items-center min-h-screen pt-20 font-[switzer variable]">
       <Navbar />
