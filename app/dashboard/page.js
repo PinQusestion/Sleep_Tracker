@@ -10,6 +10,8 @@ function page() {
   useEffect(() => {
     if(!user){
       router.push("/login");
+    }else{
+      console.log("User is authenticated:", user.email);
     }
   }, []);
   return (

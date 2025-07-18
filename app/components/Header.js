@@ -10,7 +10,7 @@ function Header() {
 
   return (
     <div className='w-full bg-[#0a0e18] flex justify-between items-center p-3 pt-4 pb-4 border-b-1 border-white'>
-      <h1 className='text-xl font-bold ml-20'>Sleep Tracker</h1>
+      <h1 className='text-2xl font-bold ml-20'>Trackeep</h1>
       <div className="flex gap-10 items-center mr-5 font-semibold">
         {user ? <Link href="/home">Home</Link> : <Link href="/">Home</Link>}
         <Link href="/dashboard">Dashboard</Link>
