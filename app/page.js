@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Home() {
 
   return (
-    <div className="bg-[#0a0e18] flex flex-col items-center justify-items-center min-h-screen pt-20 font-[switzer variable]">
+    <div className="bg-[#0a0e18] flex flex-col items-center justify-items-center min-h-screen font-[switzer variable]">
       <Navbar />
       <div className="w-full flex justify-center items-center mt-18">
         <Image

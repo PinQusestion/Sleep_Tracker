@@ -9,7 +9,7 @@ function page() {
 
   useEffect(() => {
     if(!user){
-      router.push("/Login");
+      router.push("/login");
     }
   }, []);
   return (
