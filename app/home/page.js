@@ -1,28 +1,20 @@
-import Link from "next/link";
+'use client';
+
 import React from "react";
-import Navbar from "../components/Header";
+import { Header } from "../components";
+import { useRouter } from "next/navigation";
 
 function page() {
-  return (
-    <div className="w-full pt-20 bg-[#0B0E16] min-h-screen">
-      <Navbar />
 
-      <div className="w-full flex flex-col justify-center mt-30 pl-44 font-[switzer variable]">
-        <h1 className="text-5xl font-bold mb-10">Tracking Status</h1>
-        <div className="w-full">
-          {/* Showing the sleep debt */}
-          <div className="w-[289] h-[289] bg-[#0D172C] rounded-full flex justify-center items-center border-solid border-[#2a2d35] border-25 border-e-[#4e27af]">
-            <h4 className="font-bold text-4xl text-white">7hr 32min</h4>
-          </div>
-          {/* Describing about the sleep quality and comparison*/}
-          <div className="w-1/2">
-            <div>
-              {/* Comparison */}
-            </div>
-            <div> {/* Sleep Quality */}</div>
-            <div> {/* Remaining bed time */}</div>
-          </div>
-        </div>
+    const router = useRouter();
+
+  return (
+    <div>
+      <Header />
+      <div className="flex flex-col mt-10 justify-self-center justify-center items-center gap-5">
+        <h1>Welcome you have successfully logged in!</h1>
+        <p>Lets explore the app, Shall We?</p>
+        <button onClick={() => router.push("/Dashboard")} className="w-fit bg-blue-500 py-2 px-4 rounded-xl hover:cursor-pointer">Get Started</button>
       </div>
     </div>
   );

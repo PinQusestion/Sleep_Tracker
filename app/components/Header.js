@@ -1,32 +1,33 @@
-import React from "react";
-import Link from "next/link";
+'use client'
+import Link from 'next/link'
+import React from 'react'
 
-function Navbar() {
+import { useAuth } from '../../lib/authContext';
+import { logOut } from '../../lib/authService';
+
+function Header() {
+  const {user, loading} = useAuth();
+
+  const clickHandler = async () => {
+    try {
+      await logOut();
+      window.location.href = "/";
+    } catch (err) {
+      alert(err.message);
+    }
+  };
+
   return (
-    <div className="w-full grid grid-cols-5 px-20 items-center text-[#fefefe]">
-      <Link href="/">
-        <h1 className="font-bold text-4xl">trackeep.</h1>
-      </Link>
-      <div className="bg-[#1d2028] flex px-[80] col-span-3 py-[20] rounded-4xl gap-[64] text-[18px] justify-center">
-        <Link href="/home">Home</Link>
-        <Link href="/about">About</Link>
-        <Link href="/tips">Tips for Sleep</Link>
-        <Link href="/guide">Guide</Link>
-      </div>
-      <div className="flex justify-end gap-3">
-        <Link href="/login">
-          <button className="px-4 py-2 bg-white text-black rounded hover:bg-blue-700 transition">
-            Login
-          </button>
-        </Link>
-        <Link href="/signup">
-          <button className="px-4 py-2 bg-white text-black rounded hover:bg-blue-700 transition">
-            Logout
-          </button>
-        </Link>
+    <div className='w-full bg-[#121b21] flex justify-between items-center p-3 pt-4 pb-4 border-b-1 border-white'>
+      <h1 className='text-xl font-bold ml-20'>Sleep Tracker</h1>
+      <div className="flex gap-10 items-center mr-5 font-semibold">
+        {user ? <Link href="/home">Home</Link> : <Link href="/">Home</Link>}
+        <Link href="/dashboard">Dashboard</Link>
+        <Link href="/tips">Tips</Link>
+        {user ? <button onClick={clickHandler} className='w-fit py-2 px-4 bg-[#00bcd4] text-white rounded-xl hover:cursor-pointer'>LogOut</button> : <Link href="/Login"><div className='w-fit rounded-xl bg-[#00bcd4] px-4 py-2'>LogIn</div></Link>}
       </div>
     </div>
-  );
+  )
 }
 
-export default Navbar;
+export default Header
